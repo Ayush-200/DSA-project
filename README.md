@@ -185,4 +185,3 @@ This project is open source and available under the MIT License.
 
 **Happy Sorting! 🎉**
 
-*Built with ❤️ for the developer community*
