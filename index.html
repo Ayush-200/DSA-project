@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Algorithm Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Sorting Algorithm Visualizer</h1>
+            <p>Visualize and compare different sorting algorithms in real-time</p>
+        </header>
+
+        <!-- Controls Panel -->
+        <section class="controls-panel">
+            <!-- Data Generation Controls -->
+            <div class="control-group">
+                <h3>Data Controls</h3>
+                <div class="control-row">
+                    <label for="array-size">Array Size:</label>
+                    <input type="range" id="array-size" min="5" max="100" value="20">
+                    <span id="size-display">20</span>
+                </div>
+                <div class="control-row">
+                    <button id="generate-random" class="btn btn-primary">Generate Random</button>
+                    <button id="generate-custom" class="btn btn-secondary">Custom Input</button>
+                </div>
+                <div class="control-row" id="custom-input-row" style="display: none;">
+                    <input type="text" id="custom-array" placeholder="Enter numbers separated by commas (e.g., 5,2,8,1,9)">
+                    <button id="apply-custom" class="btn btn-success">Apply</button>
+                </div>
+            </div>
+
+            <!-- Algorithm Selection -->
+            <div class="control-group">
+                <h3>Algorithm Selection</h3>
+                <div class="algorithm-buttons">
+                    <button class="algorithm-btn" data-algorithm="bubble">Bubble Sort</button>
+                    <button class="algorithm-btn" data-algorithm="selection">Selection Sort</button>
+                    <button class="algorithm-btn" data-algorithm="insertion">Insertion Sort</button>
+                    <button class="algorithm-btn" data-algorithm="merge">Merge Sort</button>
+                    <button class="algorithm-btn" data-algorithm="quick">Quick Sort</button>
+                </div>
+            </div>
+
+            <!-- Playback Controls -->
+            <div class="control-group">
+                <h3>Playback Controls</h3>
+                <div class="control-row">
+                    <button id="start-sort" class="btn btn-success">Start</button>
+                    <button id="pause-sort" class="btn btn-warning" disabled>Pause</button>
+                    <button id="reset-sort" class="btn btn-danger">Reset</button>
+                </div>
+                <div class="control-row">
+                    <label for="speed-select">Speed:</label>
+                    <select id="speed-select">
+                        <option value="slow">Slow</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="fast">Fast</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visualization Area -->
+        <section class="visualization-area">
+            <div class="chart-container">
+                <canvas id="sorting-chart" width="800" height="400"></canvas>
+            </div>
+        </section>
+
+        <!-- Performance Metrics -->
+        <section class="performance-metrics">
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h4>Comparisons</h4>
+                    <span id="comparisons-count">0</span>
+                </div>
+                <div class="metric-card">
+                    <h4>Swaps</h4>
+                    <span id="swaps-count">0</span>
+                </div>
+                <div class="metric-card">
+                    <h4>Execution Time</h4>
+                    <span id="execution-time">0ms</span>
+                </div>
+                <div class="metric-card">
+                    <h4>Current Algorithm</h4>
+                    <span id="current-algorithm">None</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Display -->
+        <section class="status-display">
+            <div id="status-message">Ready to sort! Generate an array and select an algorithm.</div>
+        </section>
+    </div>
+
+    <!-- Sorting Algorithm Modules -->
+    <script src="algorithms/bubbleSort.js"></script>
+    <script src="algorithms/selectionSort.js"></script>
+    <script src="algorithms/insertionSort.js"></script>
+    <script src="algorithms/mergeSort.js"></script>
+    <script src="algorithms/quickSort.js"></script>
+    
+    <!-- Main Application Script -->
+    <script src="script.js"></script>
+</body>
+</html>
